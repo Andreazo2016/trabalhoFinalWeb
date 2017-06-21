@@ -1,0 +1,64 @@
+#login-container {
+	margin-top: 10px;
+	margin-left: 429px;
+}
+
+#login {
+	width: 400px;
+}
+
+#img-login {
+	margin-top: 59px;
+	margin-left: 40px;
+}
+.btn-login{
+	margin-right: 10px;
+	float:right;
+}
+.msg-login{
+	margin: 0px;
+}
+#div-login {
+	margin-left: 384px;
+	padding-top:20px;
+	margin-right: 500px;
+	background-color: #D9D9F3;
+}
+#tela-login-externo{
+	padding-top:30px;
+	padding-bottom:50px;
+	background-color: #79A888;
+}
+
+#area-adm {
+	border-bottom: solid 0.5px;
+	width: 912px;
+	margin-bottom: 50px;
+}
+
+h3 {
+	margin: 30px;
+}
+
+#modal-container {
+	height: 150% !important
+}
+
+#corpo-cadastro {
+	padding-top:10px;
+	width: 700px;
+	margin: auto;
+}
+#cadastro-section{
+	margin-right: 263px;
+}
+
+.selecionado{
+	  font-size:20pt;
+	  color: red;
+	  text-align: center;
+}
+.inline li{
+  display: inline;
+  list-style-type: none;
+}
