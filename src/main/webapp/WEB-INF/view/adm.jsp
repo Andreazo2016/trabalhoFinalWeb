@@ -92,9 +92,9 @@
 							<div class="input-field col s12">
 								<select name="categoriaGame">
 									<option value="{{edit.categoriaGame}}" selected>{{edit.categoriaGame}}</option>
-									<option value="Xbox 360">Xbox 360</option>
-									<option value="Xbox One">Xbox one</option>
-									<option value="Playstation4">Playstation 4</option>
+									<option value="Xbox360">Xbox 360</option>
+									<option value="XboxOne">Xbox one</option>
+									<option value="Play4">Playstation 4</option>
 									<option value="PC">Computador</option>
 								</select> <label>Selecione a Plataforma:</label>
 							</div>

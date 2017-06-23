@@ -23,7 +23,7 @@
 			</div>
 			<div class="row">
 
-				<div class="col s5 m4" ng-repeat="game in games">
+				<div class="col s5 m4" ng-repeat="game in games ">
 					<div class="card horizontal  hoverable">
 						<div class="card-image">
 							<img src="../../img/god.jpg" width="10px" height="200px">
@@ -112,7 +112,7 @@
 	</div>
 	<!-- Secção do Cadastro -->
 	<div id="cadastro-section" class="container" >
-		<div class="container" ng-controller ="controllerCadastro">
+		<div class="container" >
 			<div id="corpo-cadastro">
 				<h1 class="center">Cadastro</h1>
 				<div class="container center">

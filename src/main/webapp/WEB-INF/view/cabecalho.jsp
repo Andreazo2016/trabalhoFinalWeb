@@ -31,6 +31,7 @@
 <div class="container" id="show">
 
 	<h4 class="center">Categorias:</h4>
+	<!-- 
 	<ul class="collapsible" data-collapsible="accordion">
 		<li>
 			<div class="collapsible-header">
@@ -40,12 +41,15 @@
 				<ul>
 
 					<li><form action="#">
-							<button type="submit" class="btn right">Ver Jogos</button>
+							<button type="button" class="btn right" ng-click="showGameCategoriaXbox360()">Ver Jogos</button>
+						 
 							<ul class="inline">
-
-								<li><p>
-										<input type="checkbox" id="test1" /> <label for="test1"> Valores menores que 100</label>
-									</p></li>
+								
+								<li><p ng-model ="xbox360">
+										<input type="checkbox" id="test1"  ng-model ="xbox360Preco"/> <label for="test1"> Valores menores que 100</label>
+									</p>
+									<h1>{{xbox360Preco}}</h1>
+									</li>
 								<li><p>
 										<input type="checkbox" id="test2" /> <label for="test2">  Valores entre 100 e 500</label>
 									</p></li>
@@ -54,6 +58,7 @@
 									</p></li>
 
 							</ul>
+							  
 
 						</form></li>
 				</ul>
@@ -67,7 +72,7 @@
 				<ul>
 
 					<li><form action="#">
-							<button type="submit" class="btn right">Ver Jogos</button>
+							<button type="button" class="btn right" ng-click="showGameCategoriaXboxOne()">Ver Jogos</button>
 							<ul class="inline">
 
 								<li><p>
@@ -94,7 +99,7 @@
 				<ul>
 
 					<li><form action="#">
-							<button type="submit" class="btn right">Ver Jogos</button>
+							<button type="button" class="btn right"ng-click="showGameCategoriaP4()">Ver Jogos</button>
 							<ul class="inline">
 
 								<li><p>
@@ -121,7 +126,7 @@
 				<ul>
 
 					<li><form action="#">
-							<button type="submit" class="btn right">Ver Jogos</button>
+							<button type="button" class="btn right" ng-click="showGameCategoriaPC()">Ver Jogos</button>
 							<ul class="inline">
 
 								<li><p>
@@ -141,5 +146,15 @@
 			</div>
 		</li>
 	</ul>
+	 -->
+	
+	
+	 <div class="collection">
+        <a href="#" class="collection-item" ng-click ="showGameCategoriaXbox360()" >Xbox 360</a>
+        <a href="#" class="collection-item " ng-click ="showGameCategoriaXboxOne()" >Xbox One</a>
+        <a href="#" class="collection-item" ng-click ="showGameCategoriaP4()" >Playstation 4</a>
+        <a href="#" class="collection-item" ng-click ="showGameCategoriaPC()" >Computador</a>
+      </div>
+	
 
 </div>

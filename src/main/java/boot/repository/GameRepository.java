@@ -10,6 +10,7 @@ import boot.model.Game;
 
 @Repository
 public interface GameRepository extends JpaRepository<Game,Integer> {
-		@Query(value = "select * from game where categoria_game = ?1 and preco_game > ?2", nativeQuery = true)
-		List<Game> findGameByCategoria(String categoria,float preco);
+	
+		@Query(value = "select * from game where categoria_game = ?1 ", nativeQuery = true)
+		List<Game> findGameByCategoria(String categoria);
 }

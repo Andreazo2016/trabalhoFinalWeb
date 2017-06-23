@@ -63,18 +63,19 @@ public class controllerGame {
 		contatoR.save(game);
 		return "redirect:/adm";
 	}
-
-	@RequestMapping("/Game/{categoria}/{preco}")
+	@RequestMapping("/GameCategoria/{categoria}")
 	@ResponseBody
-	public List<Game> findGameByCategoria(@PathVariable(value = "categoria") String categoria,@PathVariable(value = "preco") float preco){
-		return contatoR.findGameByCategoria(categoria,preco);	
+	public List<Game> GameCategoria(@PathVariable(value = "categoria") String categoria){
+		return contatoR.findGameByCategoria(categoria);
+		
 	}
 	
 	
 	@RequestMapping("/Game")
 	@ResponseBody
 	public List<Game> getAllGame() throws ClassNotFoundException, SQLException{
-		return new GameDAO().allGame();
+		//return new GameDAO().allGame();
+		return contatoR.findAll();
 	}
 	
 	
