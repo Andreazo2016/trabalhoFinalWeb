@@ -64,10 +64,10 @@ public class controllerGame {
 		return "redirect:/adm";
 	}
 
-	@RequestMapping("/Game/{categoria}")
+	@RequestMapping("/Game/{categoria}/{preco}")
 	@ResponseBody
-	public List<Game> findGameByCategoria(@PathVariable(value = "categoria") String categoria){
-		return contatoR.findGameByCategoria(categoria);	
+	public List<Game> findGameByCategoria(@PathVariable(value = "categoria") String categoria,@PathVariable(value = "preco") float preco){
+		return contatoR.findGameByCategoria(categoria,preco);	
 	}
 	
 	
