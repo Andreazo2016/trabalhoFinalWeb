@@ -63,13 +63,14 @@
 					<img alt="login" src="../../img/login.png" style="width: 200px">
 				</div>
 				<div class="row ">
-					<form class="col s12" name="formLogin" action="validarUser"
+					<form class="col s12" name="formLogin" action="validarUser" id="login-in"
 						method="post">
 						<div class="row">
 							<div class="col s12"></div>
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
+							  <i class="material-icons prefix">account_circle</i>
 								<input placeholder="Login" id="user" name="user"
 									ng-model="userLogin" type="text" class="validate" required>
 								<label for="user">Login: </label>
@@ -82,6 +83,7 @@
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
+							 <i class="material-icons prefix">lock_outline</i>
 								<input placeholder="Senha" name="senha" ng-model="userSenha"
 									id="senhauser" type="password" class="validate" required>
 								<label for="senhauser">Senha: </label>
@@ -118,13 +120,16 @@
 						<form  class="col s12" name ="formCad" action="#" >							
 							<div class="row">
 								<div class="input-field col s12">
-									<input  id="user_cpf" name="user_cpf" ng-model="cpf" ng-cpf ui-mask="999.999.999.-99"
+									<input  id="user_cpf" name="user_cpf" ng-model="cpfUser" ng-cpf ui-mask="999.999.999.-99"
 										type="text" class="validate" required> <label for="user_pcf">CPF:
 									</label>
+									<p ng-show="formCad.user_cpf.$invalid && formCad.user_cpf.$dirty">Erro</p>
+								
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
+								
 									<input placeholder="Login" id="login_user" name="login_user" ng-maxlength="12"
 										type="text" class="validate" required> <label for="login_user">Login:
 									</label>
@@ -154,9 +159,10 @@
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<input placeholder="Endereço" name="user_endereco"
+									<input placeholder="Endereço" name="user_endereco" ng-model ="user_endereco"
 										id="user_endereco" type="text" class="validate"> <label
-										for="user_endereco" required>Endereço: </label>
+										for="user_endereco" required  >Endereço: </label>
+										
 								</div>
 							</div>
 

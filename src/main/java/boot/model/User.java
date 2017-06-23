@@ -1,13 +1,27 @@
 package boot.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+
+@Entity(name = "usuario")
 public class User {
+	@Id
 	private String cpf;
+	@NotNull
 	private String nome;
+	@NotNull
 	private String email;
+	@NotNull
 	private String endereco;
-	private boolean isAdmin =  false;
+	private boolean isAdmin = false;
+	@NotNull
 	private String login;
+	@NotNull
 	private String senha;
+	
+	
 	
 	public String getCpf() {
 		return cpf;
@@ -51,6 +65,11 @@ public class User {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	@Override
+	public String toString() {
+		return "Game [id=" + this.cpf + ",login=" + this.login + "senha=" + this.senha + ", nome=" + this.nome + ", email=" + this.email + ", endereco=" + this.endereco + "]";
 	}
 
 }

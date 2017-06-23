@@ -1,17 +1,14 @@
 package boot.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-@Entity(name ="game")
-public class Game{
+@Entity
+public class GameAlugavel {
 	@Id
 	@GeneratedValue
 	private Integer codGame;
@@ -25,25 +22,23 @@ public class Game{
 	@NotNull
 	private String categoriaGame;
 	
-	private String url;
-	
+	@NotNull
+	private Date fimALuguel;
 
-	public Game(){
+	public GameAlugavel(){
 
 	}
-	public Game(Integer id,String nome,float preco, String descricao,String url){
+	public GameAlugavel(Integer id,String nome,float preco, String descricao){
 		this.codGame = id;
 		this.nomeGame = nome;
 		this.precoGame = preco;
 		this.categoriaGame = descricao;
-		this.url = url;
 	}
-	public Game(Integer id){
+	public GameAlugavel(Integer id){
 		this.codGame = id;
 	}
 
 
-	
 	public Integer getCodGame() {
 		return codGame;
 	}
@@ -56,8 +51,8 @@ public class Game{
 	public String getCategoriaGame() {
 		return categoriaGame;
 	}
-	public String getUrl() {
-		return this.url;
+	public Date getFimALuguel() {
+		return this.fimALuguel;
 	}
 	public void setCodGame(Integer codGame) {
 		this.codGame = codGame;
@@ -71,8 +66,8 @@ public class Game{
 	public void setCategoriaGame(String categoriaGame) {
 		this.categoriaGame = categoriaGame;
 	}
-	public void setUrl(String url) {
-		this.url = url;
+	public void setFimALuguel(Date fimALuguel) {
+		this.fimALuguel = fimALuguel;
 	}
 	
 	@Override
@@ -80,4 +75,5 @@ public class Game{
 
 		return "Game [id=" + this.codGame + ", nome=" + this.nomeGame + ", preco=" + this.precoGame + ", categoria=" + this.categoriaGame + "]";
 	}
+
 }

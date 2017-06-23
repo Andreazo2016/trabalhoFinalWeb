@@ -16,9 +16,9 @@ app.controller('controllerIndex',function($scope,$http){
 		});
 	
 ;
+$scope.showGameCat = function(){
+	
+}
 	
 });
 
-app.controller('controllerCadastro',function($scope){
-
-});

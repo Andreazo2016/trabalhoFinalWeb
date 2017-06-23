@@ -20,24 +20,16 @@
 			</p>
 		</div>
 		<!-- Dropdown Structure -->
-		<ul id='dropdown1' class='dropdown-content container'>
-			<li id="btn-login"><a href="#">Login</a></li>
-			<li id="btn-cad"><a href="#">Cadastra-se</a></li>
+		<ul id='dropdown1' class='dropdown-content container inline'>
+			<li id="btn-login"><a href="#">login</a></li>
+			<li id="btn-cad"><a href="#">cadastre-se</a></li>
 
 		</ul>
 	</div>
 </nav>
 
 <div class="container" id="show">
-	<!-- 
-<h4>Categorias:</h4>
-	 <div class="collection inline">
-        <a href="#!" class="collection-item">Xbox one</a>
-        <a href="#!" class="collection-item ">Xbox 360</a>
-        <a href="#!" class="collection-item">Playstation 4</a>
-        <a href="#!" class="collection-item">Computador</a>
-      </div>
-      -->
+
 	<h4 class="center">Categorias:</h4>
 	<ul class="collapsible" data-collapsible="accordion">
 		<li>
@@ -52,16 +44,13 @@
 							<ul class="inline">
 
 								<li><p>
-										<input type="checkbox" id="test1" /> <label for="test1">Faixa
-											de Valores</label>
+										<input type="checkbox" id="test1" /> <label for="test1"> Valores menores que 100</label>
 									</p></li>
 								<li><p>
-										<input type="checkbox" id="test2" /> <label for="test2">Faixa
-											de Valores</label>
+										<input type="checkbox" id="test2" /> <label for="test2">  Valores entre 100 e 500</label>
 									</p></li>
 								<li><p>
-										<input type="checkbox" id="test3" /> <label for="test3">Faixa
-											de Valores</label>
+										<input type="checkbox" id="test3" /> <label for="test3">Valores Maiores que 500</label>
 									</p></li>
 
 							</ul>
@@ -82,16 +71,13 @@
 							<ul class="inline">
 
 								<li><p>
-										<input type="checkbox" id="test4" /> <label for="test4">Faixa
-											de Valores</label>
+										<input type="checkbox" id="test4" /> <label for="test4">Valores menores que 100</label>
 									</p></li>
 								<li><p>
-										<input type="checkbox" id="test5" /> <label for="test5">Faixa
-											de Valores</label>
+										<input type="checkbox" id="test5" /> <label for="test5"> Valores entre 100 e 500</label>
 									</p></li>
 								<li><p>
-										<input type="checkbox" id="test6" /> <label for="test6">Faixa
-											de Valores</label>
+										<input type="checkbox" id="test6" /> <label for="test6">Valores Maiores que 500</label>
 									</p></li>
 
 							</ul>
@@ -112,16 +98,13 @@
 							<ul class="inline">
 
 								<li><p>
-										<input type="checkbox" id="test7" /> <label for="test7">Faixa
-											de Valores</label>
+										<input type="checkbox" id="test7" /> <label for="test7">Valores menores que 100</label>
 									</p></li>
 								<li><p>
-										<input type="checkbox" id="test8" /> <label for="test8">Faixa
-											de Valores</label>
+										<input type="checkbox" id="test8" /> <label for="test8"> Valores entre 100 e 500</label>
 									</p></li>
 								<li><p>
-										<input type="checkbox" id="test9" /> <label for="test9">Faixa
-											de Valores</label>
+										<input type="checkbox" id="test9" /> <label for="test9">Valores Maiores que 500</label>
 									</p></li>
 
 							</ul>
@@ -142,16 +125,13 @@
 							<ul class="inline">
 
 								<li><p>
-										<input type="checkbox" id="test10" /> <label for="test10">Faixa
-											de Valores</label>
+										<input type="checkbox" id="test10" /> <label for="test10">Valores menores que 100</label>
 									</p></li>
 								<li><p>
-										<input type="checkbox" id="test11" /> <label for="test11">Faixa
-											de Valores</label>
+										<input type="checkbox" id="test11" /> <label for="test11">Valores entre 100 e 500</label>
 									</p></li>
 								<li><p>
-										<input type="checkbox" id="test12" /> <label for="test12">Faixa
-											de Valores</label>
+										<input type="checkbox" id="test12" /> <label for="test12">Valores Maiores que 500</label>
 									</p></li>
 
 							</ul>

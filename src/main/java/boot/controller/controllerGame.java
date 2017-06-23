@@ -1,3 +1,4 @@
+
 package boot.controller;
 
 import java.util.*;
@@ -62,6 +63,13 @@ public class controllerGame {
 		contatoR.save(game);
 		return "redirect:/adm";
 	}
+
+	@RequestMapping("/Game/{categoria}")
+	@ResponseBody
+	public List<Game> findGameByCategoria(@PathVariable(value = "categoria") String categoria){
+		return contatoR.findGameByCategoria(categoria);	
+	}
+	
 	
 	@RequestMapping("/Game")
 	@ResponseBody

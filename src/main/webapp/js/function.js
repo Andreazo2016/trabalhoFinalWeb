@@ -1,73 +1,58 @@
-
 function showAll(){
 	var tela_principal = $('#cards').is(":visible");
 	var tela_login = $('#login-section').is(":visible");
 	var tela_cadastro = $('#cadastro-section').is(":visible");
 	var btn_login = $('#btn-login').is(":visible");
 	var btn_cad = $('#btn-cad').is(":visible");
-	
-	
 	$('#btn-cad').click(()=>{
 		if(tela_login|| tela_principal){
 			 $('#cards').hide();
-			 $('#login-section').hide();
+			 $('#login-section').hide(1500);
 			 $('#btn-cad').hide();
 			 if(btn_login){
-				 $('#btn-login').hide();
+				 $('#btn-login').hide(1500);
 			 }else{
-				 $('#btn-login').show();
+				 $('#btn-login').show(1500);
 			 }
 			
-			 $('#cadastro-section').show();
+			 $('#cadastro-section').show(1500);
 		}
 	});
 	$('#btn-login').click(()=>{
 		if(tela_cadastro || tela_principal){
 			 $('#cards').hide();
-			 $('#cadastro-section').hide();
-			 $('#btn-login').hide();
+			 $('#cadastro-section').hide(1500);
+			 $('#btn-login').hide(1500);
 			 if(btn_cad){
-				 $('#btn-cad').hide();
+				 $('#btn-cad').hide(1500);
 			 }else{
-				 $('#btn-cad').show();
+				 $('#btn-cad').show(1500);
 			 }
 			
-			 $('#login-section').show();
+			 $('#login-section').show(1500);
 		}
 	});
 	$('#login-cancelar').click(()=>{
-		$('#btn-login').show();
-		$('#login-section').hide();
-		$('#cards').show();
+		$('#btn-login').show(1500);
+		$('#login-section').hide(1500);
+		$('#cards').show(1500);
 		
 	});
 	$('#cad-cancelar').click(()=>{
-		$('#cadastro-section').hide();
-		$('#btn-cad').show();
-		$('#cards').show();
+		$('#cadastro-section').hide(1500);
+		$('#btn-cad').show(1500);
+		$('#cards').show(1500);
 	});
-	
-	
-	
-	
-	
 }
-
 function showCategoria() {
 	$('#efeito-lista').click(function(){
-
 		$('#show').toggle(1000);
 	});
-
 }
-
-
 $(document).ready(function(){
 	$('#cadastro-section').hide();
-	//showCad();
 	$('#login-section').hide();
 	showAll();
-	//showAndHideLogin();
 	$('#show').hide();
 	showCategoria();
 	$('.collapsible').collapsible();
@@ -77,5 +62,4 @@ $(document).ready(function(){
 	$(".button-collapse").sideNav();
 	$('.modal').modal();
 	$('select').material_select();
-
 });
