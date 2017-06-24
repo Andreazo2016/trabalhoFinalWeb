@@ -34,8 +34,7 @@ import boot.service.GameService;
 @Controller
 public class controllerGame {
 	
-	@Autowired
-	private GameService servicegame;
+	
 	
 	@Autowired
 	private GameRepository contatoR;
@@ -69,8 +68,6 @@ public class controllerGame {
 		return contatoR.findGameByCategoria(categoria);
 		
 	}
-	
-	
 	@RequestMapping("/Game")
 	@ResponseBody
 	public List<Game> getAllGame() throws ClassNotFoundException, SQLException{
@@ -78,5 +75,9 @@ public class controllerGame {
 		return contatoR.findAll();
 	}
 	
+	@RequestMapping("/verGame")
+	public String verGame(){
+		return "ver_produtos";
+	}
 	
 }

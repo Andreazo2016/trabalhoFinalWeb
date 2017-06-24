@@ -59,11 +59,12 @@ h3 {
 	  color: red;
 	  text-align: center;
 }
-.inline li{
-  display: inline;
-  list-style-type: none;
+#area-principal{
+	margin-top: 100px;
 }
-
+#area-game-compra{
+	margin-left: 400px;
+}
 
 #login-in{
 	padding-right: 20px;
