@@ -23,28 +23,28 @@
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<input placeholder="CPf" id="user_cpf" name="user_cpf"
+							<input placeholder="CPf" id="user_cpf" name="cpf"
 								type="text" class="validate"> <label for="user_pcf">CPf:
 							</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<input placeholder="Nome" id="user_name" name="user_name"
+							<input placeholder="Nome" id="user_name" name="nome"
 								type="text" class="validate"> <label for="user_name">Nome:
 							</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<input placeholder="Email" id="user_email" name="user_email"
+							<input placeholder="Email" id="user_email" name="email"
 								type="email" class="validate"> <label for="user_email">email:
 							</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<input placeholder="Endereço" name="user_endereco"
+							<input placeholder="Endereço" name="endereco"
 								id="user_endereco" type="text" class="validate"> <label
 								for="user_endereco">Endereço: </label>
 						</div>

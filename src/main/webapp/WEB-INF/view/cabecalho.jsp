@@ -16,7 +16,7 @@
 			<p class="msg-login tooltipped" data-position="bottom"
 				data-delay="50" data-tooltip="Faça o login ou 
 			cadastra-se">
-				Olá, Amigo<br>
+				Olá, ${usuario_logado.nome}<br>
 			</p>
 		</div>
 		<!-- Dropdown Structure -->

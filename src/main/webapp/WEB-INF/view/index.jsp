@@ -63,7 +63,7 @@
 					<img alt="login" src="../../img/login.png" style="width: 200px">
 				</div>
 				<div class="row ">
-					<form class="col s12" name="formLogin" action="validarUser" id="login-in"
+					<form class="col s12" name="formLogin" action="login" id="login-in"
 						method="post">
 						<div class="row">
 							<div class="col s12"></div>
@@ -71,7 +71,7 @@
 						<div class="row">
 							<div class="input-field col s12">
 							  <i class="material-icons prefix">account_circle</i>
-								<input placeholder="Login" id="user" name="user"
+								<input placeholder="Login" id="user" name="login"
 									ng-model="userLogin" type="text" class="validate" required>
 								<label for="user">Login: </label>
 
@@ -117,10 +117,10 @@
 				<h1 class="center">Cadastro</h1>
 				<div class="container center">
 					<div class="row">
-						<form  class="col s12" name ="formCad" action="#" >							
+						<form  class="col s12" name ="formCad" action="CadastroUser" method="post">							
 							<div class="row">
 								<div class="input-field col s12">
-									<input  id="user_cpf" name="user_cpf" ng-model="cpfUser" ng-cpf ui-mask="999.999.999.-99"
+									<input  id="user_cpf" name="cpf" ng-model="cpfUser" ng-cpf ui-mask="999.999.999-99"
 										type="text" class="validate" required> <label for="user_pcf">CPF:
 									</label>
 									<p ng-show="formCad.user_cpf.$invalid && formCad.user_cpf.$dirty">Erro</p>
@@ -130,7 +130,7 @@
 							<div class="row">
 								<div class="input-field col s12">
 								
-									<input placeholder="Login" id="login_user" name="login_user" ng-maxlength="12"
+									<input placeholder="Login" id="login_user" name="login" ng-maxlength="12"
 										type="text" class="validate" required> <label for="login_user">Login:
 									</label>
 								</div>
@@ -138,28 +138,28 @@
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<input placeholder=" Senha" id="senha_user" name="senha_user"
+									<input placeholder=" Senha" id="senha_user" name="senha"
 										type="password" class="validate" required> <label for="senha_user">Senha:
 									</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<input placeholder="Nome" id="user_name" name="user_name"
+									<input placeholder="Nome" id="user_name" name="nome"
 										type="text" class="validate" required> <label for="user_name">Nome:
 									</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<input placeholder="Email" id="user_email" name="user_email"
+									<input placeholder="Email" id="user_email" name="email"
 										type="email" class="validate" required> <label for="user_email">email:
 									</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<input placeholder="Endereço" name="user_endereco" ng-model ="user_endereco"
+									<input placeholder="Endereço" name="endereco" ng-model ="user_endereco"
 										id="user_endereco" type="text" class="validate"> <label
 										for="user_endereco" required  >Endereço: </label>
 										
