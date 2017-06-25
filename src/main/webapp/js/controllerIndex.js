@@ -71,3 +71,11 @@ $scope.showGameCategoriaP4 = function(){
 	
 });
 
+
+app.controller('controller_login',function($scope){
+	//$scope.login = ($scope)=>{
+		$scope.teste = "Helo"+$scope.userLogin + $scope.userSenha;
+	//}
+		$scope.teste = "Funcionando...";
+});
+

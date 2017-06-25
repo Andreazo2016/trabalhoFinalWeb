@@ -55,16 +55,17 @@
 
 	</div>
 	<!-- Secção do Login -->
-	<div class="container" id="login-section">
+	<div class="container" id="login-section" >
 
-		<div class="container" id="login">
+		<div class="container" id="login" ng-controller ="controller_login">
+		{{teste}}
 			<div class="center">
 				<div class="container" id="img-login">
 					<img alt="login" src="../../img/login.png" style="width: 200px">
 				</div>
 				<div class="row ">
-					<form class="col s12" name="formLogin" action="login" id="login-in"
-						method="post">
+					<form class="col s12" name="formLogin" action="loginUser" id="login-in"
+						method="get">
 						<div class="row">
 							<div class="col s12"></div>
 						</div>
@@ -85,7 +86,7 @@
 							<div class="input-field col s12">
 							 <i class="material-icons prefix">lock_outline</i>
 								<input placeholder="Senha" name="senha" ng-model="userSenha"
-									id="senhauser" type="password" class="validate" required>
+									id="senhauser" type="password" class="validate"  required>
 								<label for="senhauser">Senha: </label>
 
 							</div>
@@ -193,7 +194,7 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 		<script src="../../js/controllerIndex.js"></script>
-	<script src="../../js/controller_login.js"></script>
+	
 	<script src="../../js/mask.js"></script>
 	
 
