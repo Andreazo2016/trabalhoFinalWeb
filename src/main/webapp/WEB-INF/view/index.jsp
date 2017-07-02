@@ -57,7 +57,7 @@
 	<!-- Secção do Login -->
 	<div class="container" id="login-section" >
 
-		<div class="container" id="login" ng-controller ="controller_login">
+		<div class="container" id="login" >
 		{{teste}}
 			<div class="center">
 				<div class="container" id="img-login">

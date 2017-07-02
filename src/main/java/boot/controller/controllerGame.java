@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import boot.dao.GameDAO;
 import boot.model.Game;
@@ -65,13 +66,14 @@ public class controllerGame {
 	@RequestMapping("/GameCategoria/{categoria}")
 	@ResponseBody
 	public List<Game> GameCategoria(@PathVariable(value = "categoria") String categoria){
+		
 		return contatoR.findGameByCategoria(categoria);
 		
 	}
 	@RequestMapping("/Game")
 	@ResponseBody
 	public List<Game> getAllGame() throws ClassNotFoundException, SQLException{
-		//return new GameDAO().allGame();
+		
 		return contatoR.findAll();
 	}
 	

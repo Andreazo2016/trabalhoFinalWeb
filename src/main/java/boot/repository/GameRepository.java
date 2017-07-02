@@ -13,4 +13,5 @@ public interface GameRepository extends JpaRepository<Game,Integer> {
 	
 		@Query(value = "select * from game where categoria_game = ?1 ", nativeQuery = true)
 		List<Game> findGameByCategoria(String categoria);
+		
 }

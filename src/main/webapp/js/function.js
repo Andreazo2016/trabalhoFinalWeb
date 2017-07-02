@@ -15,6 +15,7 @@ function showAll(){
 				 $('#btn-login').show(1500);
 			 }
 			
+			 $('body').css("background-image", "url()");
 			 $('#cadastro-section').show(1500);
 		}
 	});
@@ -28,7 +29,7 @@ function showAll(){
 			 }else{
 				 $('#btn-cad').show(1500);
 			 }
-			
+			 $('body').css("background-image", "url(../../img/ice.jpg)");
 			 $('#login-section').show(1500);
 		}
 	});

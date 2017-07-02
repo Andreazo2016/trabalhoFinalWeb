@@ -4,6 +4,7 @@
 		<a href="#slide-out" id="efeito-lista" class="brand-logo"
 			class="button-collapse"><i class="large material-icons">menu</i></a>
 		<a href="/" class="brand-logo center  ">GameFlix</a>
+		<!--  <img alt="" src="../../img/logo.png"> terminar hj ainda isso-->
 		<!-- Dropdown Trigger -->
 		<div class="btn-login">
 			<a class='dropdown-button  right' href='#' data-activates='dropdown1'>

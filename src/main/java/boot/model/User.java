@@ -1,12 +1,16 @@
 package boot.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.Cascade;
+
 @Entity(name = "usuario")
-public class User {
+public class User implements Serializable{
 	@Id
 	private String cpf;
 	@NotNull
@@ -21,6 +25,8 @@ public class User {
 	@NotNull
 	private String senha;
 	
+	@OneToOne
+	private CarroCompra carro;
 	
 	
 	public String getCpf() {
@@ -66,6 +72,13 @@ public class User {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	public void setCarro(CarroCompra carro) {
+		this.carro = carro;
+	}
+	public CarroCompra getCarro() {
+		return carro;
+	}
+	
 	
 	@Override
 	public String toString() {

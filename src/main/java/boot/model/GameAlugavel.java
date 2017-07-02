@@ -1,14 +1,17 @@
 package boot.model;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 @Entity
-public class GameAlugavel {
+public class GameAlugavel extends Game {
 	@Id
 	@GeneratedValue
 	private Integer codGame;
@@ -23,7 +26,8 @@ public class GameAlugavel {
 	private String categoriaGame;
 	
 	@NotNull
-	private Date fimALuguel;
+	@Temporal(TemporalType.DATE)
+	private Calendar fimALuguel;
 
 	public GameAlugavel(){
 
@@ -51,7 +55,7 @@ public class GameAlugavel {
 	public String getCategoriaGame() {
 		return categoriaGame;
 	}
-	public Date getFimALuguel() {
+	public Calendar getFimALuguel() {
 		return this.fimALuguel;
 	}
 	public void setCodGame(Integer codGame) {
@@ -66,7 +70,7 @@ public class GameAlugavel {
 	public void setCategoriaGame(String categoriaGame) {
 		this.categoriaGame = categoriaGame;
 	}
-	public void setFimALuguel(Date fimALuguel) {
+	public void setFimALuguel(Calendar fimALuguel) {
 		this.fimALuguel = fimALuguel;
 	}
 	

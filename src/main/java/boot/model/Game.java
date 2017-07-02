@@ -1,24 +1,36 @@
 package boot.model;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.ForeignKey;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity(name ="game")
-public class Game{
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+public class Game {
 	@Id
 	@GeneratedValue
 	private Integer codGame;
 	@NotNull
 	@Size(max= 15 , message ="Valor muito alto")
 	private String nomeGame;
-
+	
 	@NotNull
 	private float precoGame;
 
@@ -27,6 +39,9 @@ public class Game{
 	
 	private String url;
 	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JsonBackReference
+	private CarroCompra carrinho ;
 
 	public Game(){
 
@@ -74,7 +89,12 @@ public class Game{
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	
+	public void setCarrinho(CarroCompra carrinho) {
+		this.carrinho = carrinho;
+	}
+	public CarroCompra getCarrinho() {
+		return carrinho;
+	}
 	@Override
 	public String toString() {
 

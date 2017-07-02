@@ -44,7 +44,7 @@ $scope.showGameCategoriaXbox360 = function(){
 }
 $scope.showGameCategoriaXboxOne = function(){
 	
-	$http.get('/GameCategoria/XboxOne')
+	$http.get('/GameCategoria/Xbox One')
 	.then(function(response){
 		console.log(response);
 		 var count = Object.keys(response.data).length 
@@ -72,10 +72,4 @@ $scope.showGameCategoriaP4 = function(){
 });
 
 
-app.controller('controller_login',function($scope){
-	//$scope.login = ($scope)=>{
-		$scope.teste = "Helo"+$scope.userLogin + $scope.userSenha;
-	//}
-		$scope.teste = "Funcionando...";
-});
 
