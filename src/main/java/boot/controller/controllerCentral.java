@@ -30,6 +30,7 @@ public class controllerCentral {
 	private UserRepository usuarioR;
 	@Autowired
 	private CarroRepository rep;
+	
 	@RequestMapping("/")
 	public String home() throws ClassNotFoundException{	
 		

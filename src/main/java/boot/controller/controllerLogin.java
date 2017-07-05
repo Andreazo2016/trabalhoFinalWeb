@@ -23,21 +23,23 @@ public class controllerLogin {
 		System.out.println(user.getLogin() );
 		System.out.println(user.getSenha());
 		
-//		if(usuario.getLogin() == null || usuario.getSenha() == null){
-//			return "error";
-//		}
-	
+			
 		if(usuario.getisAdmin()){
-			session.setAttribute("usuario_logado", user);
-			rm.addFlashAttribute("usuario_logado", user);
+			session.setAttribute("usuario_logado", usuario);
+			//session.setAttribute("nome_user", usuario.getNome());
+			
 			return "redirect:/adm";
 			}
-		rm.addFlashAttribute("usuario_logado", user);
-		session.setAttribute("usuario_logado", user);
 		return "index";
 		
 	 
 	} 
+	@RequestMapping("/logout")
+	public String logout(HttpSession session){
+		session.removeAttribute("usuario_logado");
+		session.invalidate();
+		return "redirect:/";
+	}
 	
 	
 	

@@ -17,13 +17,18 @@
 			<p class="msg-login tooltipped" data-position="bottom"
 				data-delay="50" data-tooltip="Faça o login ou 
 			cadastra-se">
-				Olá, ${usuario_logado.nome}<br>
+				Olá, ${sessionScope.usuario_logado.nome}<br>
 			</p>
 		</div>
 		<!-- Dropdown Structure -->
 		<ul id='dropdown1' class='dropdown-content container inline'>
 			<li id="btn-login"><a href="#">login</a></li>
 			<li id="btn-cad"><a href="#">cadastre-se</a></li>
+			  <c:set var = "logout" scope = "session" value = "${1000}"/>
+			<c:if test="${logout > 500 }">
+			<li><a href="logout">Logout</a></li>
+			</c:if>
+			
 
 		</ul>
 	</div>

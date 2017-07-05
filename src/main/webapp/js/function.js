@@ -15,7 +15,7 @@ function showAll(){
 				 $('#btn-login').show(1500);
 			 }
 			
-			 $('body').css("background-image", "url()");
+			// $('body').css("background-image", "url()");
 			 $('#cadastro-section').show(1500);
 		}
 	});
@@ -29,7 +29,7 @@ function showAll(){
 			 }else{
 				 $('#btn-cad').show(1500);
 			 }
-			 $('body').css("background-image", "url(../../img/ice.jpg)");
+			 //$('body').css("background-image", "url(../../img/console.jpg)");
 			 $('#login-section').show(1500);
 		}
 	});
@@ -51,6 +51,7 @@ function showCategoria() {
 	});
 }
 $(document).ready(function(){
+	$('body').css("background-image", "url(../../img/console.jpg)");
 	$('#cadastro-section').hide();
 	$('#login-section').hide();
 	showAll();
