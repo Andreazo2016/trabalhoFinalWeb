@@ -38,6 +38,7 @@ public class controllerLogin {
 	@RequestMapping("/logout")
 	public String logout(HttpSession session){
 		session.removeAttribute("usuario_logado");
+		session.removeAttribute("carroCompra");
 		session.invalidate();
 		return "redirect:/";
 	}

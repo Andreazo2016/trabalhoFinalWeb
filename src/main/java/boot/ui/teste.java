@@ -21,7 +21,7 @@ public class teste {
 	public void  add(CarroCompra c){
 		System.out.println("entrou");
 		System.out.println(c.getCod_carro());
-		System.out.println(c.getGames());
+		//System.out.println(c.getGames());
 		System.out.println(c.getUser());
 		carro.save(c);
 	}

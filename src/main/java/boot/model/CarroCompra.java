@@ -21,18 +21,21 @@ import org.hibernate.annotations.Cascade;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name = "carrinho")
-public class CarroCompra  {
+public class CarroCompra implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "codCarro")
 	private long codCarrinho;
 	
 	@OneToOne
+	@JoinColumn(name = "cpf_user") 
 	private User user;
-	@OneToMany(mappedBy = "carrinho",targetEntity = Game.class,cascade = CascadeType.ALL)
-	private List<Game> games;
+	
+	@OneToMany(mappedBy = "carrinho", targetEntity = Item.class,cascade = CascadeType.ALL)
+	private List<Item> itens;
 	
 	
-	@JoinColumn(name="codCarrinho",referencedColumnName = "codVenda")
+	@JoinColumn(name="codCarro")
 	private Venda venda;
 	@NotNull
 	private double preco;
@@ -49,8 +52,8 @@ public class CarroCompra  {
 	public double getPreco() {
 		return preco;
 	}
-	public List<Game> getGames() {
-		return this.games;
+	public List<Item> getItens() {
+		return this.itens;
 	}
 	public void setCod_carro(long cod_carro) {
 		this.codCarrinho = cod_carro;
@@ -58,13 +61,13 @@ public class CarroCompra  {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public void setGames(List<Game> games) {
+	public void setItens(List<Item> itens) {
 		double preco = 0;
-		for(Game g:games){
-			preco += g.getPrecoGame();
+		for(Item i:itens){
+			preco += i.getQtd_produto() * i.getGame().getPrecoGame(); 
 		}
 		setPreco(preco);
-		this.games = games;
+		 this.itens = itens;
 	}
 	public void setPreco(double preco) {
 		this.preco = preco;

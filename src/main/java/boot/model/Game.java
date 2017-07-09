@@ -23,9 +23,10 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity(name ="game")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class Game {
+public class Game implements Serializable {
 	@Id
 	@GeneratedValue
+	@Column(name="codGame")
 	private Integer codGame;
 	@NotNull
 	@Size(max= 15 , message ="Valor muito alto")
@@ -39,10 +40,7 @@ public class Game {
 	
 	private String url;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name ="carro_id")
-	@JsonBackReference
-	private CarroCompra carrinho ;
+	
 
 	public Game(){
 
@@ -90,12 +88,7 @@ public class Game {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public void setCarrinho(CarroCompra carrinho) {
-		this.carrinho = carrinho;
-	}
-	public CarroCompra getCarrinho() {
-		return carrinho;
-	}
+
 	@Override
 	public String toString() {
 

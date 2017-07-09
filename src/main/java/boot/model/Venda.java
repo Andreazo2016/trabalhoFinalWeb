@@ -22,7 +22,7 @@ public class Venda implements Serializable {
 	private Calendar dataVenda;
 	
 	
-	@OneToOne
+	@OneToOne(cascade =CascadeType.ALL)
 	private CarroCompra carro;
 	
 	public long getCodVenda() {

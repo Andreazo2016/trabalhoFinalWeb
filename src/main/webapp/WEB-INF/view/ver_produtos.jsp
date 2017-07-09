@@ -145,15 +145,13 @@
 
 		</div>
 		<div class="modal-footer">
-			<form action="/addCarro/${sessionScope.game.codGame}">
-				<!-- criar a parte do alugar com calendario -->
-				<input type="hidden" value="${sessionScope.game.nomeGame}"
-					name="nomeGame"> <input type="hidden"
-					value="${sessionScope.game.precoGame}" name="precoGame"> <input
-					type="hidden" value="${sessionScope.game.categoriaGame}"
-					name="categoriaGame">
-				<button type="submit" class="btn waves-effect waves-black btn-flat">Confirmar</button>
-			</form>
+		
+		<form action="/addCarro">
+		<input type="hidden" value ="${sessionScope.game.codGame}" name ="codGame">
+		 <input type ="number" placeholder="Digite a quantidade do produto" name="qtd_produto">
+			<button type="submit" class="btn">Comfirmar</button>
+		</form>
+			
 
 		</div>
 	</div>
@@ -175,10 +173,11 @@
 					</thead>
 
 					<tbody>
-						<c:forEach var ="game" items="${sessionScope.carroCompra.games}">
+						<c:forEach var ="item" items="${sessionScope.carroCompra.itens}">
 							<tr>
-								<td>${game.nomeGame}</td>
-								<td>${game.precoGame}</td>
+								<td>${item.game.nomeGame}</td>
+								<td>${item.game.precoGame}</td>
+								<td>${item.qtd_produto}</td>
 								
 							</tr>
 
@@ -195,7 +194,7 @@
 		
 		<div class="modal-footer">
 	
-			<a href="#!"
+			<a href="/vendaCarro"
 				class="modal-action modal-close waves-effect waves-green btn-flat">Finalizar
 				Venda</a>
 		</div>
