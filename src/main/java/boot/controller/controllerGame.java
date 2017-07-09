@@ -77,8 +77,10 @@ public class controllerGame {
 		return contatoR.findAll();
 	}
 	
-	@RequestMapping("/verGame")
-	public String verGame(){
+	@RequestMapping("/verGame/{id}")
+	public String verGame(HttpSession session,@PathVariable(value = "id") long id ){
+		Game game  = contatoR.findGamebyId(id);
+		session.setAttribute("game", game);
 		return "ver_produtos";
 	}
 	

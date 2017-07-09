@@ -15,13 +15,14 @@
 		<div class="nav-wrapper blue darken-1">
 			<a href="/" class="brand-logo center ">Game</a>
 			<ul id="nav-mobile" class="left hide-on-med-and-down">
-
+			<li><a href="/">Home</a></li>
 			</ul>
 		</div>
+	
 	</nav>
 
 	<div class="container ">
-		<h3 class="center">Área do Administrador</h3>
+		<h3 class="center"> Administrador: ${sessionScope.usuario_logado.nome} </h3>
 		<div id="area-adm"></div>
 
 
@@ -100,6 +101,7 @@
 							</div>
 
 						</div>
+						
 						<button class="waves-effect waves-light btn-large" type="submit">Salvar</button>
 						<a  ng-click = "close(false)";
 							class="modal-action modal-close waves-effect red darken-1 btn-large">Cancelar</a>
@@ -143,6 +145,13 @@
 									</select> <label>Selecione a Plataforma:</label>
 								</div>
 
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<input placeholder="Digite o URL do Produto" id="urlProduto"
+										name="url" type="text" class="validate" > <label
+										for="urlProduto">URL do Produto </label>
+								</div>
 							</div>
 							<button  class="waves-effect waves-light btn-large " type="submit" >Salvar</button>
 							<a href="#!" class="modal-action modal-close waves-effect red darken-1 btn-flat btn-large">Cancelar</a>

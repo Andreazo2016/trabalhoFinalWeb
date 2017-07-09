@@ -1,3 +1,11 @@
+function showVerProduto(){
+	$('#btn-ver-game').click(()=>{
+		$('#area-principal').hide();
+		$('#login-section').show(1500);
+	});
+}
+
+
 function showAll(){
 	var tela_principal = $('#cards').is(":visible");
 	var tela_login = $('#login-section').is(":visible");
@@ -51,9 +59,12 @@ function showCategoria() {
 	});
 }
 $(document).ready(function(){
+	  
+	$('.carousel.carousel-slider').carousel({fullWidth: true});
 	$('body').css("background-image", "url(../../img/console.jpg)");
 	$('#cadastro-section').hide();
 	$('#login-section').hide();
+	showVerProduto();
 	showAll();
 	$('#show').hide();
 	showCategoria();

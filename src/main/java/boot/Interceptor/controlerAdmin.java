@@ -24,11 +24,14 @@ public class controlerAdmin extends HandlerInterceptorAdapter{
 			response.sendRedirect("/");
 			return true;
 		}else{
+			System.out.println(user.getisAdmin());
 			
-			if(uri.startsWith("/adm") && user.getisAdmin()){
+			if(uri.startsWith("/adm") && !user.getisAdmin()){
 			
+				response.sendRedirect("/");
 				return true;
 			}
+		
 		return true;
 		
 		}

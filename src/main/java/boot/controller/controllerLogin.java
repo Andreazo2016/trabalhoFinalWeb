@@ -30,6 +30,7 @@ public class controllerLogin {
 			
 			return "redirect:/adm";
 			}
+		session.setAttribute("usuario_logado", usuario);
 		return "index";
 		
 	 

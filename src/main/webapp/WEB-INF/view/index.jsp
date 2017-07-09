@@ -37,7 +37,7 @@
 
 							</div>
 							<div class="card-action">
-								<a href="#">Ver Detalhe</a>
+								<a href="verGame/{{game.cod}}">Ver Detalhe</a>
 
 							</div>
 						</div>
@@ -57,7 +57,7 @@
 	<!-- Secção do Login -->
 	<div class="container" id="login-section" >
 
-		<div class="container" id="login" >
+		<!-- <div class="container" id="login" >
 		{{teste}}
 			<div class="center">
 				<div class="container" id="img-login">
@@ -107,7 +107,8 @@
 			</div>
 
 
-		</div>
+		</div> -->
+		<c:import url="login_form.jsp"></c:import>
 
 
 	</div>

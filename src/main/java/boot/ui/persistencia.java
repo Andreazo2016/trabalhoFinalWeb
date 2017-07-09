@@ -20,7 +20,7 @@ public class persistencia {
 		game.setPrecoGame(234);
 		game.setCategoriaGame("PC");
 		
-		carrinho.addProdutoToList(game);
+		
 		new teste().add(carrinho);
 		
 		

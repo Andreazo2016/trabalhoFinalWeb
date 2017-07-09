@@ -39,7 +39,8 @@ public class Game {
 	
 	private String url;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name ="carro_id")
 	@JsonBackReference
 	private CarroCompra carrinho ;
 

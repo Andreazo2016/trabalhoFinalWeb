@@ -26,15 +26,12 @@ public class CarroCompra  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long codCarrinho;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	//@JoinColumn(name="codCarrinho",referencedColumnName = "cpf")
+	@OneToOne
 	private User user;
-	@OneToMany(mappedBy = "carrinho",fetch = FetchType.LAZY)
-	@Cascade(org.hibernate.annotations.CascadeType.ALL)
-	@JsonManagedReference
+	@OneToMany(mappedBy = "carrinho",targetEntity = Game.class,cascade = CascadeType.ALL)
 	private List<Game> games;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	
 	@JoinColumn(name="codCarrinho",referencedColumnName = "codVenda")
 	private Venda venda;
 	@NotNull
@@ -62,6 +59,11 @@ public class CarroCompra  {
 		this.user = user;
 	}
 	public void setGames(List<Game> games) {
+		double preco = 0;
+		for(Game g:games){
+			preco += g.getPrecoGame();
+		}
+		setPreco(preco);
 		this.games = games;
 	}
 	public void setPreco(double preco) {
@@ -73,10 +75,5 @@ public class CarroCompra  {
 	public void setVenda(Venda venda) {
 		this.venda = venda;
 	}
-	public void  addProdutoToList(Game game){
-		double preco =  getPreco();
-		preco += game.getPrecoGame();
-		setPreco(preco);
-		this.games.add(game);
-	}
+	
 }

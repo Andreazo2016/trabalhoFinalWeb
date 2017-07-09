@@ -2,7 +2,10 @@ package boot.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
@@ -12,6 +15,9 @@ import org.hibernate.annotations.Cascade;
 @Entity(name = "usuario")
 public class User implements Serializable{
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	@NotNull
 	private String cpf;
 	@NotNull
 	private String nome;
@@ -28,6 +34,9 @@ public class User implements Serializable{
 	@OneToOne
 	private CarroCompra carro;
 	
+	public long getId() {
+		return id;
+	}
 	
 	public String getCpf() {
 		return cpf;
@@ -43,6 +52,9 @@ public class User implements Serializable{
 	}
 	public boolean getisAdmin(){
 		return this.isAdmin;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 	public void setCpf(String cpf) {

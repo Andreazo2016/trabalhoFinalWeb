@@ -28,7 +28,7 @@ public class controllerUser {
 	@RequestMapping("/CadastroUser")
 	public String cadastrarUser(HttpSession session,@Valid User user){
 		 usuario.save(user);
-		 
+		 session.setAttribute("usuario_logado", user);
 		 return "redirect:/";
 	}
 	

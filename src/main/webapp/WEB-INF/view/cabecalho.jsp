@@ -1,4 +1,4 @@
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <nav>
 	<div class="nav-wrapper  blue darken-1">
 		<a href="#slide-out" id="efeito-lista" class="brand-logo"
@@ -15,21 +15,19 @@
 		</div>
 		<div class="btn-login">
 			<p class="msg-login tooltipped" data-position="bottom"
-				data-delay="50" data-tooltip="Faça o login ou 
-			cadastra-se">
-				Olá, ${sessionScope.usuario_logado.nome}<br>
+				data-delay="50" data-tooltip=" Bem-Vindo ${sessionScope.usuario_logado.nome}">${sessionScope.usuario_logado.nome}	 
 			</p>
 		</div>
 		<!-- Dropdown Structure -->
-		<ul id='dropdown1' class='dropdown-content container inline'>
-			<li id="btn-login"><a href="#">login</a></li>
-			<li id="btn-cad"><a href="#">cadastre-se</a></li>
-			  <c:set var = "logout" scope = "session" value = "${1000}"/>
-			<c:if test="${logout > 500 }">
-			<li><a href="logout">Logout</a></li>
-			</c:if>
+		<ul id='dropdown1' class='dropdown-content container '>
+			<c:if test="${sessionScope.usuario_logado == null }">
+			<li id="btn-login"><a href="#"><i class=" material-icons">input</i>login</a></li>
 			
-
+			<li id="btn-cad"><a href="#">cadastre-se</a></li>
+			</c:if>
+			<c:if test="${sessionScope.usuario_logado != null }">
+					<li><a href="logout">Logout</a></li>
+			</c:if>
 		</ul>
 	</div>
 </nav>
@@ -37,122 +35,7 @@
 <div class="container" id="show">
 
 	<h4 class="center">Categorias:</h4>
-	<!-- 
-	<ul class="collapsible" data-collapsible="accordion">
-		<li>
-			<div class="collapsible-header">
-				<i class="material-icons">play_arrow</i>Xbox 360
-			</div>
-			<div class="collapsible-body">
-				<ul>
-
-					<li><form action="#">
-							<button type="button" class="btn right" ng-click="showGameCategoriaXbox360()">Ver Jogos</button>
-						 
-							<ul class="inline">
-								
-								<li><p ng-model ="xbox360">
-										<input type="checkbox" id="test1"  ng-model ="xbox360Preco"/> <label for="test1"> Valores menores que 100</label>
-									</p>
-									<h1>{{xbox360Preco}}</h1>
-									</li>
-								<li><p>
-										<input type="checkbox" id="test2" /> <label for="test2">  Valores entre 100 e 500</label>
-									</p></li>
-								<li><p>
-										<input type="checkbox" id="test3" /> <label for="test3">Valores Maiores que 500</label>
-									</p></li>
-
-							</ul>
-							  
-
-						</form></li>
-				</ul>
-			</div>
-		</li>
-		<li>
-			<div class="collapsible-header">
-				<i class="material-icons">play_arrow</i>Xbox one
-			</div>
-			<div class="collapsible-body">
-				<ul>
-
-					<li><form action="#">
-							<button type="button" class="btn right" ng-click="showGameCategoriaXboxOne()">Ver Jogos</button>
-							<ul class="inline">
-
-								<li><p>
-										<input type="checkbox" id="test4" /> <label for="test4">Valores menores que 100</label>
-									</p></li>
-								<li><p>
-										<input type="checkbox" id="test5" /> <label for="test5"> Valores entre 100 e 500</label>
-									</p></li>
-								<li><p>
-										<input type="checkbox" id="test6" /> <label for="test6">Valores Maiores que 500</label>
-									</p></li>
-
-							</ul>
-
-						</form></li>
-				</ul>
-			</div>
-		</li>
-		<li>
-			<div class="collapsible-header">
-				<i class="material-icons">play_arrow</i>Playstation 4
-			</div>
-			<div class="collapsible-body">
-				<ul>
-
-					<li><form action="#">
-							<button type="button" class="btn right"ng-click="showGameCategoriaP4()">Ver Jogos</button>
-							<ul class="inline">
-
-								<li><p>
-										<input type="checkbox" id="test7" /> <label for="test7">Valores menores que 100</label>
-									</p></li>
-								<li><p>
-										<input type="checkbox" id="test8" /> <label for="test8"> Valores entre 100 e 500</label>
-									</p></li>
-								<li><p>
-										<input type="checkbox" id="test9" /> <label for="test9">Valores Maiores que 500</label>
-									</p></li>
-
-							</ul>
-
-						</form></li>
-				</ul>
-			</div>
-		</li>
-		<li>
-			<div class="collapsible-header">
-				<i class="material-icons">play_arrow</i>Computador
-			</div>
-			<div class="collapsible-body">
-				<ul>
-
-					<li><form action="#">
-							<button type="button" class="btn right" ng-click="showGameCategoriaPC()">Ver Jogos</button>
-							<ul class="inline">
-
-								<li><p>
-										<input type="checkbox" id="test10" /> <label for="test10">Valores menores que 100</label>
-									</p></li>
-								<li><p>
-										<input type="checkbox" id="test11" /> <label for="test11">Valores entre 100 e 500</label>
-									</p></li>
-								<li><p>
-										<input type="checkbox" id="test12" /> <label for="test12">Valores Maiores que 500</label>
-									</p></li>
-
-							</ul>
-
-						</form></li>
-				</ul>
-			</div>
-		</li>
-	</ul>
-	 -->
+	
 	
 	
 	 <div class="collection">

@@ -13,7 +13,7 @@
 	margin-left: 80px;
 }
 .btn-login{
-	margin-right: 10px;
+	margin-right: 20px;
 	float:right;
 }
 .msg-login{
@@ -62,9 +62,14 @@ h3 {
 #area-principal{
 	margin-top: 100px;
 }
-
+#area-game-compra{
+	width: 400px;
+	
+}
 
 #login-in{
 	padding-right: 20px;
-	
+}
+#dropdown1{
+	margin-right: 100px;
 }
