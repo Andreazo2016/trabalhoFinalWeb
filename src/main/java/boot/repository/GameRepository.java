@@ -15,5 +15,7 @@ public interface GameRepository extends JpaRepository<Game,Integer> {
 		List<Game> findGameByCategoria(String categoria);
 		@Query(value = "select * from game where cod_game = ?1",nativeQuery = true)
 		Game findGamebyId(long id);
+		@Query(value = "delete from Item where cod_game = ?1", nativeQuery=true)
+		 void findAndRemoveItemByidGame(long id);
 		
 }

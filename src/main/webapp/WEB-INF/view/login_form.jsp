@@ -5,7 +5,7 @@
 				</div>
 				<div class="row ">
 					<form class="col s12" name="formLogin" action="/loginUser" id="login-in"
-						method="get">
+						method="post">
 						<div class="row">
 							<div class="col s12"></div>
 						</div>

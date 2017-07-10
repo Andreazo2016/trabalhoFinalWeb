@@ -1,7 +1,11 @@
 package boot.controller;
 
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -60,12 +64,15 @@ public class controllerCarro {
 		item.setCarro(carro);
 		item.setQtd_produto(1);
 		lista = carro.getItens();
+		if(!lista.contains(item)){
 		lista.add(item);
+		}
 		carro.setItens(lista);
 		carro.setUser(user);
 		session.setAttribute("carroCompra", carro);
 		
 		System.out.println("normal");
+
 
 		String page = "/verGame/" + id;
 		String url = "redirect:" + page;
@@ -113,6 +120,54 @@ public class controllerCarro {
 		return "index";
 		
 	}
+	
+	@RequestMapping("/addGameData")
+	public String addGameData(HttpSession session,@RequestParam(value ="id") long id,@RequestParam(value ="data") String data) throws ParseException{
+		List<Item> lista;
+		User user = (User) session.getAttribute("usuario_logado");
+		Game game =  contatoR.findGamebyId(id);
+		Item item =  new Item();
+		CarroCompra carro = (CarroCompra) session.getAttribute("carroCompra");
+		if(carro == null){
+			carro = new CarroCompra();
+			lista =  new ArrayList<Item>();
+			item.setGame(game);
+			item.setQtd_produto(1);
+			item.setCarro(carro);
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+			 String convertedCurrentDate =sdf.format(sdf.parse(data));
+			 System.out.println(convertedCurrentDate);
+			item.setFimALuguel(data);
+			lista.add(item);
+			carro.setItens(lista);
+			carro.setUser(user);
+			carro.setCod_carro(0);
+			item.setId(0);
+			session.setAttribute("carroCompra", carro);
+			
+			System.out.println("carro nulo");
+		}
+		item.setGame(game);
+		item.setCarro(carro);
+		item.setQtd_produto(1);
+		item.setFimALuguel(data);
+		lista = carro.getItens();
+		if(!lista.contains(item)){
+		lista.add(item);
+		}
+		carro.setItens(lista);
+		carro.setUser(user);
+		session.setAttribute("carroCompra", carro);
+		
+		System.out.println("normal");
+		String page = "/verGame/" + id;
+		String url = "redirect:" + page;
+		return url;
+		
+		
+	}
+
+	
 	
 	
 }

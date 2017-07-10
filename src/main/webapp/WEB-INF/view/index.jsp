@@ -12,32 +12,78 @@
 		<c:import url="cabecalho.jsp" />
 	</div>
 
+<c:if test="${teste == 'failed' }">
+	<div id="div-error">
+	<h1 class="center red-text">${msgError}</h1>
+	
 	</div>
+
+</c:if>
+	
 
 
 	<div id="corpo">
+	<div class=" card-panel" id="img-logo">
+				<div class="slider">
+					<ul class="slides">
+						<li><img src="../../img/destaques/e31.JPG">
+							<!-- random image -->
+							<div class="caption center-align">
+								<h3>Lancamentos</h3>
+								<h5 class="light grey-text text-lighten-3">Só aqui na GameFlix.</h5>
+							</div></li>
+						<li><img src="../../img/destaques/e31.JPG">
+							<!-- random image -->
+							<div class="caption left-align">
+								<h3>Venha Aproveitar</h3>
+								<h5 class="light grey-text text-lighten-3">Só aqui na GameFlix.</h5>
+							</div></li>
+						<li><img  src="../../img/destaques/e33.png">
+							<!-- random image -->
+							<div class="caption right-align">
+								<h3>Corre que está acabando</h3>
+								<h5 class="light grey-text text-lighten-3">Só aqui na GameFlix.</h5>
+							</div></li>
+						<li><img  src="../../img/destaques/e32.jpg">
+							<!-- random image -->
+							<div class="caption center-align">
+								<h3>Venha!</h3>
+								<h5 class="light grey-text text-lighten-3">Só aqui na GameFlix.</h5>
+							</div></li>
+					</ul>
+				</div>
+			</div>
 
 		<div id="cards" class=" container center">
-			<div class="container ">
-				<h1 class="center">Destaques</h1>
-			</div>
+			<h4 class="center">Destaques</h4>
 			<div class="row">
+				<div class="red-text center" ng-if="qtd_obj == 0">
+
+					<h1>Não há Game nessa Categoria</h1>
+					<h2>Desculpa, Escolha outra Categoria</h2>
+				</div>
+
+
+
+
 
 				<div class="col s5 m4" ng-repeat="game in games ">
 					<div class="card horizontal  hoverable">
-						<div class="card-image">
+						<div class="card-image circle responsive-img">
 							<img src="../../img/god.jpg" width="10px" height="200px">
 						</div>
-						<div class="card-stacked ">
+
+						<div class="card-stacked  ">
 							<div class="card-content">
 								<p>{{game.nome}}</p>
 								<p>{{game.categoria}}</p>
 								<p>{{game.preco | currency:'R$ ': 2}}</p>
-								<p>_____________</p>
+
 
 							</div>
 							<div class="card-action">
-								<a href="verGame/{{game.cod}}">Ver Detalhe</a>
+								<a href="verGame/{{game.cod}}" class="btn  deep-orange">
+									Mais</a>
 
 							</div>
 						</div>
@@ -55,7 +101,7 @@
 
 	</div>
 	<!-- Secção do Login -->
-	<div class="container" id="login-section" >
+	<div class="container" id="login-section">
 
 		<!-- <div class="container" id="login" >
 		{{teste}}
@@ -113,58 +159,61 @@
 
 	</div>
 	<!-- Secção do Cadastro -->
-	<div id="cadastro-section" class="container" >
-		<div class="container" >
+	<div id="cadastro-section" class="container">
+		<div class="container ">
 			<div id="corpo-cadastro">
 				<h1 class="center">Cadastro</h1>
 				<div class="container center">
 					<div class="row">
-						<form  class="col s12" name ="formCad" action="CadastroUser" method="post">							
+						<form class="col s12" name="formCad" action="CadastroUser"
+							method="post">
 							<div class="row">
 								<div class="input-field col s12">
-									<input  id="user_cpf" name="cpf" ng-model="cpfUser" ng-cpf ui-mask="999.999.999-99"
-										type="text" class="validate" required> <label for="user_pcf">CPF:
-									</label>
-									<p ng-show="formCad.user_cpf.$invalid && formCad.user_cpf.$dirty">Erro</p>
-								
+									<input id="user_cpf" name="cpf" ng-model="cpfUser" ng-cpf
+										ui-mask="999.999.999-99" type="text" class="validate" required>
+									<label for="user_pcf">CPF: </label>
+									<p
+										ng-show="formCad.user_cpf.$invalid && formCad.user_cpf.$dirty">Erro</p>
+
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-								
-									<input placeholder="Login" id="login_user" name="login" ng-maxlength="12"
-										type="text" class="validate" required> <label for="login_user">Login:
-									</label>
+
+									<input placeholder="Login" id="login_user" name="login"
+										ng-maxlength="12" type="text" class="validate" required>
+									<label for="login_user">Login: </label>
 								</div>
-								
+
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
 									<input placeholder=" Senha" id="senha_user" name="senha"
-										type="password" class="validate" required> <label for="senha_user">Senha:
-									</label>
+										type="password" class="validate" required> <label
+										for="senha_user">Senha: </label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
 									<input placeholder="Nome" id="user_name" name="nome"
-										type="text" class="validate" required> <label for="user_name">Nome:
-									</label>
+										type="text" class="validate" required> <label
+										for="user_name">Nome: </label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
 									<input placeholder="Email" id="user_email" name="email"
-										type="email" class="validate" required> <label for="user_email">email:
-									</label>
+										type="email" class="validate" required> <label
+										for="user_email">email: </label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
-									<input placeholder="Endereço" name="endereco" ng-model ="user_endereco"
-										id="user_endereco" type="text" class="validate"> <label
-										for="user_endereco" required  >Endereço: </label>
-										
+									<input placeholder="Endereço" name="endereco"
+										ng-model="user_endereco" id="user_endereco" type="text"
+										class="validate"> <label for="user_endereco" required>Endereço:
+									</label>
+
 								</div>
 							</div>
 
@@ -194,10 +243,10 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-		<script src="../../js/controllerIndex.js"></script>
-	
+	<script src="../../js/controllerIndex.js"></script>
+
 	<script src="../../js/mask.js"></script>
-	
+
 
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">

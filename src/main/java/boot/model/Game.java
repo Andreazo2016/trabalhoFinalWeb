@@ -22,7 +22,7 @@ import org.hibernate.annotations.ForeignKey;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity(name ="game")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+
 public class Game implements Serializable {
 	@Id
 	@GeneratedValue
@@ -40,6 +40,9 @@ public class Game implements Serializable {
 	
 	private String url;
 	
+	
+	
+
 	
 
 	public Game(){
@@ -88,6 +91,7 @@ public class Game implements Serializable {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	
 
 	@Override
 	public String toString() {

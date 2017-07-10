@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html ng-app="appGames">
+<html >
 <head>
 
 </head>
@@ -49,36 +49,32 @@
 
 
 						<div id="img-ver">
-							<div class="card Medium">
+							<div class="card Medium ">
 								<div class="card-image waves-effect waves-block waves-light">
-									<img class="activator" src="${sessionScope.game.url }">
+									<img  class="activator materialboxed" src="${sessionScope.game.url }" width="1000px">
 								</div>
 								<div class="card-content">
-									<span class="card-title  grey-text text-darken-4">${sessionScope.game.nomeGame}
-										<i class="material-icons right">more_vert</i>
+									<span class="card-title center grey-text text-darken-4">${sessionScope.game.nomeGame}
+										<i class="material-icons right">swap_vertical_circle</i>
 									</span>
 									<p>
 
-										<a href="#" class="btn activator ">Alugar Jogo</a> <a
-											href="/addGameCarro/${sessionScope.game.codGame}"
-											class="btn  ">Add Carro</a>
+										<a href="#" class="btn activator deep-orange">Alugar Jogo</a>
+										<a href="/addGameCarro/${sessionScope.game.codGame}"
+											class="btn deep-orange ">Add Carro</a>
 									</p>
 								</div>
-								<div class="card-reveal">
+								<div class="card-reveal ">
 									<span class="card-title grey-text text-darken-4"> Alugar
 										Game <i class="material-icons right">close</i>
 									</span>
 									<p>Data de Fim de Aluguel</p>
-									<form action="#">
+									<form action="/addGameData">
 										<!-- criar a parte do alugar com calendario -->
-										<input type="hidden" value="${sessionScope.game.nomeGame}"
-											name="nomeGame"> <input type="hidden"
-											value="${sessionScope.game.precoGame}" name="precoGame">
-										<input type="hidden"
-											value="${sessionScope.game.categoriaGame}"
-											name="categoriaGame"> <input type="date"
-											name="fimALuguel">
-										<button type="submit" class="btn">add Carro</button>
+										<input type="hidden" value="${sessionScope.game.codGame}"
+											name="id"> <input type="date" name="data">
+										<button type="submit" class="btn deep-orange">add
+											Carro</button>
 									</form>
 								</div>
 							</div>
@@ -93,20 +89,23 @@
 				<div class="col s6">
 					<div class="container" id="area-game-compra">
 						<div>
-							<h4 class="center">Produto</h4>
+							<h4 class="center deep-orange white-text accent-3 msg-card">Produto</h4>
 							<div>
-								<div class="card-panel ">
-									<h5>${sessionScope.game.nomeGame}</h5>
-									<p>R$:${sessionScope.game.precoGame}</p>
-									<p>Categoria: ${sessionScope.game.categoriaGame}</p>
+								<div class="card-panel  ">
+									<div class=" card-panel  ">
+										<h5 class=" blue-text center">${sessionScope.game.nomeGame}</h5>
+										<p class ="blue-text">R$: ${sessionScope.game.precoGame}</p>
+										<p class ="blue-text">Categoria: ${sessionScope.game.categoriaGame}</p>
+									</div>
+
 
 
 									<div class="row">
 										<div class="col s6">
-											<a href="#modal1" class="btn">Comprar</a>
+											<a href="#modal1" class="btn deep-orange">Comprar</a>
 										</div>
 										<div class="col s6">
-											<a href="/" class="btn">mais jogos</a>
+											<a href="/" class="btn   deep-orange">mais jogos</a>
 										</div>
 
 
@@ -137,67 +136,87 @@
 	<!-- Modal Structure -->
 	<div id="modal1" class="modal">
 		<div class="modal-content">
-			<h4 class="center">Compra individual</h4>
+			<div class="card-panel">
+				<h4 class="center">Compra individual</h4>
+			</div>
 
-			<h4>Informação da compra:</h4>
-			<h4>Nome do Jogo : ${sessionScope.game.nomeGame}</h4>
-			<h4>Preço do Jogo : ${sessionScope.game.precoGame}</h4>
+			<div class="card-panel">
+				<h4>Informação da compra:</h4>
+				<h4>Nome do Jogo : ${sessionScope.game.nomeGame}</h4>
+				<h4>Preço do Jogo : ${sessionScope.game.precoGame}</h4>
+
+			</div>
+
 
 		</div>
 		<div class="modal-footer">
-		
-		<form action="/addCarro">
-		<input type="hidden" value ="${sessionScope.game.codGame}" name ="codGame">
-		 <input type ="number" placeholder="Digite a quantidade do produto" name="qtd_produto">
-			<button type="submit" class="btn">Comfirmar</button>
-		</form>
-			
+
+			<form action="/addCarro">
+				<input type="hidden" value="${sessionScope.game.codGame}"
+					name="codGame"> <input type="number"
+					placeholder="Digite a quantidade do produto" name="qtd_produto">
+				<button type="submit" class="btn ">Comfirmar</button>
+			</form>
+
 
 		</div>
 	</div>
 	<!-- Modal Carrinho -->
 	<!-- Modal Structure -->
-	<div id="modal2" class="modal">
+	<div id="modal2" class="modal" style="width: 900px">
 		<div class="modal-content">
-			<h5 class="center">Carrinho de compra do:
-				${sessionScope.usuario_logado.nome }</h5>
-			<div class="container">
-				<table class="table">
-					<thead>
-						<tr>
+			<div class="card-panel deep-orange">
+				<h5 class=" white-text center">Carrinho de Compra do:
+					${sessionScope.usuario_logado.nome }</h5>
+			</div>
 
-							<th>Item Name</th>
-							<th>Item Price</th>
-							<th>Data Aluguel</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						<c:forEach var ="item" items="${sessionScope.carroCompra.itens}">
+			<div class="card-panel">
+				<div class="panel">
+					<table class="table bordered centered">
+						<thead>
 							<tr>
-								<td>${item.game.nomeGame}</td>
-								<td>${item.game.precoGame}</td>
-								<td>${item.qtd_produto}</td>
-								
+
+								<th>Nome do Game</th>
+								<th>Preço do Game</th>
+								<th>Emprestado até</th>
 							</tr>
+						</thead>
 
-						</c:forEach>
+						<tbody>
+							<c:forEach var="item" items="${sessionScope.carroCompra.itens}">
+								<tr>
+									<td>${item.game.nomeGame}</td>
+									<td>${item.game.precoGame}</td>
+									<td>${item.fimALuguel}</td>
+								</tr>
 
-						
-					</tbody>
-				</table>
-				
+							</c:forEach>
+
+
+						</tbody>
+					</table>
+
+				</div>
+
+
 			</div>
 			<br>
-				<h4>Valor Total: ${sessionScope.carroCompra.preco}</h4>
+			<div class="right">
+				<h4>
+					<span class="blue-text">Total: R$
+						${sessionScope.carroCompra.preco}</span>
+				</h4>
+			</div>
+			<div class="left">
+
+				<a href="/vendaCarro"
+					class=" btn modal-action modal-close waves-effect waves-green deep-orange">Finalizar
+					Venda</a>
+			</div>
+
 		</div>
-		
-		<div class="modal-footer">
-	
-			<a href="/vendaCarro"
-				class="modal-action modal-close waves-effect waves-green btn-flat">Finalizar
-				Venda</a>
-		</div>
+
+
 	</div>
 
 

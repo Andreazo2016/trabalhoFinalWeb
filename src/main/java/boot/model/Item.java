@@ -27,6 +27,10 @@ public class Item implements Serializable{
 		private CarroCompra carrinho;
 		
 		int qtd_produto;
+		
+		private String fimALuguel;
+		
+		
 		public long getId() {
 			return id;
 		}
@@ -51,5 +55,11 @@ public class Item implements Serializable{
 		}
 		public void setCarro(CarroCompra carro) {
 			this.carrinho = carro;
+		}
+		public String getFimALuguel() {
+			return fimALuguel;
+		}
+		public void setFimALuguel(String fimALuguel) {
+			this.fimALuguel = fimALuguel;
 		}
 }

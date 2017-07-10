@@ -19,19 +19,36 @@ public class controllerLogin {
 	@RequestMapping("/loginUser")
 	public String login(User user,HttpSession session,RedirectAttributes rm){
 		
-		User usuario =  usuarioR.findLoginAndSenha(user.getLogin(), user.getSenha()); 
-		System.out.println(user.getLogin() );
-		System.out.println(user.getSenha());
+		try {
+			User usuario =  usuarioR.findLoginAndSenha(user.getLogin(), user.getSenha()); 
+			System.out.println(user.getLogin() );
+			System.out.println(user.getSenha());
+			
+			if(user.getLogin().equals(usuario.getLogin()) &&  user.getSenha().equals(usuario.getSenha())){
+				
+				if(usuario.getisAdmin()){
+					session.setAttribute("usuario_logado", usuario);
+					//session.setAttribute("nome_user", usuario.getNome());
+					
+					return "redirect:/adm";
+				}
+				session.setAttribute("usuario_logado", usuario);
+				return "redirect:/";
+				
+			}
+		} catch (Exception e) {
+			rm.addFlashAttribute("msgError", "Login ou Senha Incorreto");
+			rm.addFlashAttribute("teste", "failed");
+			
+		}
+		return "redirect:/";
+	
 		
 			
-		if(usuario.getisAdmin()){
-			session.setAttribute("usuario_logado", usuario);
-			//session.setAttribute("nome_user", usuario.getNome());
-			
-			return "redirect:/adm";
-			}
-		session.setAttribute("usuario_logado", usuario);
-		return "index";
+	
+		
+		
+	
 		
 	 
 	} 

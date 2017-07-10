@@ -2,7 +2,10 @@
 	margin-top: 10px;
 	margin-left: 429px;
 }
-
+#corpo{
+	margin: 0px;
+	padding: 0px;
+}
 #login {
 	margin-right:310px;
 	width: 400px;
@@ -72,4 +75,10 @@ h3 {
 }
 #dropdown1{
 	margin-right: 100px;
+}
+
+
+.msg-card{
+	padding-top: 35px;
+	height: 100px;	
 }

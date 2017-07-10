@@ -1,3 +1,32 @@
+function msgError(){
+	var tela_erro = $('#div-error').is(":visible");
+	if(tela_erro){
+		$('#div-error').toggle(10000);
+	}
+}
+
+
+function showAndHideNav(){
+	$('#xbox360').click(()=>{
+		$('#show').toggle(1000);
+		$('#img-logo').toggle(1000);
+	});
+	$('#xboxone').click(()=>{
+		$('#show').toggle(1000);
+		$('#img-logo').toggle(1000);
+	});
+	$('#ps4').click(()=>{
+		$('#show').toggle(1000);
+		$('#img-logo').toggle(1000);
+	});
+	$('#pc').click(()=>{
+		$('#show').toggle(1000);
+		$('#img-logo').toggle(1000);
+	});
+}
+
+
+
 function showVerProduto(){
 	$('#btn-ver-game').click(()=>{
 		$('#area-principal').hide();
@@ -12,8 +41,13 @@ function showAll(){
 	var tela_cadastro = $('#cadastro-section').is(":visible");
 	var btn_login = $('#btn-login').is(":visible");
 	var btn_cad = $('#btn-cad').is(":visible");
+	var div_log = $('#img-logo').is(":visible");
+	var ver_prod = $('#area-principal').is(":visible");
 	$('#btn-cad').click(()=>{
 		if(tela_login|| tela_principal){
+			if(div_log){
+				$('#img-logo').toggle(1000);
+			}
 			 $('#cards').hide();
 			 $('#login-section').hide(1500);
 			 $('#btn-cad').hide();
@@ -28,6 +62,9 @@ function showAll(){
 		}
 	});
 	$('#btn-login').click(()=>{
+		if(div_log){
+			$('#img-logo').toggle(1000);
+		}
 		if(tela_cadastro || tela_principal){
 			 $('#cards').hide();
 			 $('#cadastro-section').hide(1500);
@@ -37,17 +74,21 @@ function showAll(){
 			 }else{
 				 $('#btn-cad').show(1500);
 			 }
+			 
 			 //$('body').css("background-image", "url(../../img/console.jpg)");
 			 $('#login-section').show(1500);
 		}
 	});
 	$('#login-cancelar').click(()=>{
+	    $('#area-principal').toggle(1500);
+		$('#img-logo').toggle(1000);
 		$('#btn-login').show(1500);
 		$('#login-section').hide(1500);
 		$('#cards').show(1500);
 		
 	});
 	$('#cad-cancelar').click(()=>{
+		$('#img-logo').toggle(1000);
 		$('#cadastro-section').hide(1500);
 		$('#btn-cad').show(1500);
 		$('#cards').show(1500);
@@ -55,17 +96,25 @@ function showAll(){
 }
 function showCategoria() {
 	$('#efeito-lista').click(function(){
+		$('#img-logo').toggle(1000);
 		$('#show').toggle(1000);
 	});
 }
 $(document).ready(function(){
-	  
+	
 	$('.carousel.carousel-slider').carousel({fullWidth: true});
-	$('body').css("background-image", "url(../../img/console.jpg)");
+	 $('.carousel').carousel({dist:0});
+     window.setInterval(function(){$('.carousel').carousel('next')},1500);
+	$('.carousel.carousel-slider').carousel({});
+	//$('body').css("background-image", "url(../../img/console.jpg)");
+	showAndHideNav();
+	$('.materialboxed').materialbox();
 	$('#cadastro-section').hide();
 	$('#login-section').hide();
 	showVerProduto();
+	msgError();
 	showAll();
+	$('.slider').slider();
 	$('#show').hide();
 	showCategoria();
 	$('.collapsible').collapsible();
