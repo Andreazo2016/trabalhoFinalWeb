@@ -51,7 +51,10 @@
 						<div id="img-ver">
 							<div class="card Medium ">
 								<div class="card-image waves-effect waves-block waves-light">
-									<img  class="activator materialboxed" src="${sessionScope.game.url }" width="1000px">
+								<div class="container">
+									<img   src="${sessionScope.game.url }" width="10px">
+								</div>
+									
 								</div>
 								<div class="card-content">
 									<span class="card-title center grey-text text-darken-4">${sessionScope.game.nomeGame}
@@ -164,6 +167,8 @@
 	<!-- Modal Carrinho -->
 	<!-- Modal Structure -->
 	<div id="modal2" class="modal" style="width: 900px">
+	<!-- 
+	
 		<div class="modal-content">
 			<div class="card-panel deep-orange">
 				<h5 class=" white-text center">Carrinho de Compra do:
@@ -179,6 +184,7 @@
 								<th>Nome do Game</th>
 								<th>Preço do Game</th>
 								<th>Emprestado até</th>
+								<th>Ação</th>
 							</tr>
 						</thead>
 
@@ -188,6 +194,8 @@
 									<td>${item.game.nomeGame}</td>
 									<td>${item.game.precoGame}</td>
 									<td>${item.fimALuguel}</td>
+									<td><a href="#" class="btn">Editar</a></td>
+									<td><a href="/removeGameCarro/${item.game.codGame}" class="btn">Excluir</a></td>
 								</tr>
 
 							</c:forEach>
@@ -215,7 +223,10 @@
 			</div>
 
 		</div>
-
+	
+	 -->
+		
+<c:import url="modal_carro.jsp"></c:import>
 
 	</div>
 

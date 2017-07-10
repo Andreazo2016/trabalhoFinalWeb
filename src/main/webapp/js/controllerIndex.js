@@ -9,7 +9,7 @@ app.controller('controllerIndex',function($scope ,$http){
 			
 			 for(var i = 0; i < count; i++){
 				 var json = response.data[i]; 
-				 $scope.games.push({cod:json.codGame,nome:json.nomeGame,preco: json.precoGame,categoria:json.categoriaGame});
+				 $scope.games.push({cod:json.codGame,nome:json.nomeGame,preco: json.precoGame,categoria:json.categoriaGame,url:json.url});
 				
 			 }
 		},function(response){
@@ -29,7 +29,7 @@ $scope.showGameCategoriaPC = function(){
 		
 		 for(var i = 0; i < count; i++){
 			 var json = response.data[i]; 
-			 $scope.games.push({cod:json.codGame,nome:json.nomeGame,preco: json.precoGame,categoria:json.categoriaGame});
+			 $scope.games.push({cod:json.codGame,nome:json.nomeGame,preco: json.precoGame,categoria:json.categoriaGame,url:json.url});
 		 }
 	});
 }
@@ -44,13 +44,13 @@ $scope.showGameCategoriaXbox360 = function(){
 		 $scope.games = [];
 		 for(var i = 0; i < count; i++){
 			 var json = response.data[i]; 
-			 $scope.games.push({cod:json.codGame,nome:json.nomeGame,preco: json.precoGame,categoria:json.categoriaGame});
+			 $scope.games.push({cod:json.codGame,nome:json.nomeGame,preco: json.precoGame,categoria:json.categoriaGame,url:json.url});
 		 }
 	});
 }
 $scope.showGameCategoriaXboxOne = function(){
 	
-	$http.get('/GameCategoria/XboxOne')
+	$http.get('/GameCategoria/Xbox One')
 	.then(function(response){
 		console.log(response);
 		 var count = Object.keys(response.data).length 
@@ -59,7 +59,7 @@ $scope.showGameCategoriaXboxOne = function(){
 		 console.log("QTD" + $scope.qtd_obj);
 		 for(var i = 0; i < count; i++){
 			 var json = response.data[i]; 
-			 $scope.games.push({cod:json.codGame,nome:json.nomeGame,preco: json.precoGame,categoria:json.categoriaGame});
+			 $scope.games.push({cod:json.codGame,nome:json.nomeGame,preco: json.precoGame,categoria:json.categoriaGame,url:json.url});
 		 }
 	});
 }
@@ -74,7 +74,7 @@ $scope.showGameCategoriaP4 = function(){
 		 $scope.games = [];
 		 for(var i = 0; i < count; i++){
 			 var json = response.data[i]; 
-			 $scope.games.push({cod:json.codGame,nome:json.nomeGame,preco: json.precoGame,categoria:json.categoriaGame});
+			 $scope.games.push({cod:json.codGame,nome:json.nomeGame,preco: json.precoGame,categoria:json.categoriaGame,url:json.url});
 		 }
 	});
 }

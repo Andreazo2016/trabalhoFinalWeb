@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import boot.model.CarroCompra;
 import boot.model.Game;
@@ -164,6 +165,23 @@ public class controllerCarro {
 		String url = "redirect:" + page;
 		return url;
 		
+		
+	}
+	@RequestMapping("removeGameCarro/{id}")
+	public String removeGameCarro(HttpSession session ,@PathVariable(value = "id") long id,RedirectAttributes rm){
+		CarroCompra carro  =  (CarroCompra) session.getAttribute("carroCompra");
+		List<Item> itens = carro.getItens();
+		for(Item i: itens){
+			if(i.getGame().getCodGame() == id){
+				itens.remove(i);
+			}
+		}
+		carro.setItens(itens);
+		session.setAttribute("carroCompra", carro);
+		rm.addFlashAttribute("msg", "Game Removido com Sucesso!");
+		String page = "/verGame/" + id;
+		String url = "redirect:" + page;
+		return url;
 		
 	}
 

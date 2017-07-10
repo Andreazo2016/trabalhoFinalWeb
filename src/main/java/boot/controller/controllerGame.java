@@ -53,7 +53,12 @@ public class controllerGame {
 	}
 	@RequestMapping("/Game/{id}/delete")
 	public String deletarGame(Model model,@PathVariable(value = "id") int id) throws ClassNotFoundException, SQLException{
-		contatoR.findAndRemoveItemByidGame(id);
+		try {
+			contatoR.findAndRemoveItemByidGame(id);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		contatoR.delete(new Game(id));
 		 return "redirect:/adm";
 		

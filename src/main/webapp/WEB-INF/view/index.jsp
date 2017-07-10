@@ -70,7 +70,7 @@
 				<div class="col s5 m4" ng-repeat="game in games ">
 					<div class="card horizontal  hoverable">
 						<div class="card-image circle responsive-img">
-							<img src="../../img/god.jpg" width="10px" height="200px">
+							<img ng-src="{{game.url}}" width="10px" height="200px">
 						</div>
 
 						<div class="card-stacked  ">
@@ -78,6 +78,7 @@
 								<p>{{game.nome}}</p>
 								<p>{{game.categoria}}</p>
 								<p>{{game.preco | currency:'R$ ': 2}}</p>
+								
 
 
 							</div>

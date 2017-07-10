@@ -66,9 +66,9 @@
 
 		</div>
 		<br><br><br>
-		<div  class = "container" ng-show="showEdiarDiv">
+		<div  class = "container " ng-show="showEdiarDiv">
 			<div class="center" id="modal-container">
-				<h3 class="center">Editar Jogos</h3>
+				<h3 class="center card-panel deep-orange white-text">Editar Jogos</h3>
 				<div class="row">
 					<form class="col s12" action="/Game/update" method="post">
 						<input type="hidden" name="codGame" value="{{edit.codigoGame}}">
@@ -115,8 +115,8 @@
 			
 			<div class="modal-content">
 				<div class="">
-					<h3 class="center">Cadastro de Jogos</h3>
-					<div class="row">
+					<h3 class="center card-panel deep-orange white-text">Cadastro de Jogos</h3>
+					<div class="row card-panel">
 						<form class="col s12 center" action="/Game/add" method="post"
 							>
 							<div class="row">
@@ -153,8 +153,9 @@
 										for="urlProduto">URL do Produto </label>
 								</div>
 							</div>
+							<a href="#!" class="modal-action modal-close waves-effect red darken-1 btn-flat btn-large white-text">Cancelar</a>
 							<button  class="waves-effect waves-light btn-large " type="submit" >Salvar</button>
-							<a href="#!" class="modal-action modal-close waves-effect red darken-1 btn-flat btn-large">Cancelar</a>
+							
 						</form>
 					</div>
 				</div>
