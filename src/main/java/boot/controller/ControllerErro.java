@@ -17,27 +17,32 @@ public class ControllerErro implements ErrorController {
 		
 		if(CodigoErro == 400){
 			msgErro = " Desculpe Solicitação Imprópria";
+			model.addAttribute("codErro",CodigoErro);
 			model.addAttribute("erro", msgErro);
 			return "errorPage";
 		}
 		else if(CodigoErro == 401){
 			msgErro = "Desculpe Você Não Está Autorizado";
+			model.addAttribute("codErro",CodigoErro);
 			model.addAttribute("erro", msgErro);
 			return "errorPage";
 		}
 		else if(CodigoErro == 404){
-			msgErro = "Desculpe Não Conseguimos Encontrar o Que Você Requisitou";
+			msgErro = " Desculpe Não Conseguimos Encontrar A Página Requisitada";
+			model.addAttribute("codErro",CodigoErro);
 			model.addAttribute("erro", msgErro);
 			return "errorPage";
 		}
 		else if(CodigoErro == 500){
 			msgErro = "Desculpe Tivemos um Error no Servidor. Contate o Administrador do Sistema";
+			model.addAttribute("codErro",CodigoErro);
 			model.addAttribute("erro", msgErro);
 			return "errorPage";
 		}
 		
 		else{
 			model.addAttribute("erro", msgErro);
+			model.addAttribute("codErro",CodigoErro);
 			return "errorPage";	
 		}
 	}

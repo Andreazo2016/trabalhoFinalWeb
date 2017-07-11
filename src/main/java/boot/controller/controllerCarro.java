@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -40,9 +41,16 @@ public class controllerCarro {
 	
 	
 	@RequestMapping("/addGameCarro/{id}")
-	public String addProdutoCarro(HttpSession session, @PathVariable(value="id") long id){
-		List<Item> lista;
+	public String addProdutoCarro(HttpSession session, @PathVariable(value="id") long id,RedirectAttributes rm){
 		User user = (User) session.getAttribute("usuario_logado");
+		if(user == null){
+			rm.addFlashAttribute("ver1", "failed");
+			rm.addFlashAttribute("msg-carro", "Não foi possivel Adicionar ao Carrinho!");
+			String page = "/verGame/" + id;
+			String url = "redirect:" + page;
+			return url;
+		}
+		List<Item> lista;
 		Game game =  contatoR.findGamebyId(id);
 		Item item =  new Item();
 		CarroCompra carro = (CarroCompra) session.getAttribute("carroCompra");
@@ -71,6 +79,7 @@ public class controllerCarro {
 		carro.setItens(lista);
 		carro.setUser(user);
 		session.setAttribute("carroCompra", carro);
+		session.setAttribute("gameConfirmacao", game);
 		
 		System.out.println("normal");
 
@@ -80,7 +89,7 @@ public class controllerCarro {
 		return url;
 	}
 	@RequestMapping("addCarro")
-	public String addCarro(HttpSession session,@RequestParam(value = "codGame") long codGame,@RequestParam(value = "qtd_produto") int qtd_produto){
+	public String addCarro(HttpSession session,@RequestParam(value = "codGame") long codGame,@RequestParam(value = "qtd_produto") int qtd_produto,RedirectAttributes rm){
 		User user = (User) session.getAttribute("usuario_logado");
 		Game game = contatoR.findGamebyId(codGame);
 		CarroCompra carro  = new CarroCompra();
@@ -98,12 +107,13 @@ public class controllerCarro {
 			v.setCarro(carro);
 			carroR.save(carro);
 			vendaR.save(v);
-			
-		 return "index";
+			session.removeAttribute("carroCompra");
+			rm.addFlashAttribute("msgError", "Compra Realizada com sucesso!");
+		 return "venda";
 	}
 	@RequestMapping("vendaCarro")
 	@org.springframework.transaction.annotation.Transactional(readOnly = false)
-	public String vendaCarro(HttpSession session){
+	public String vendaCarro(HttpSession session,RedirectAttributes rm){
 		CarroCompra carro  = (CarroCompra) session.getAttribute("carroCompra");
 		System.out.println("Cod Carro "+carro.getCod_carro());
 		Venda venda =  new Venda();
@@ -118,7 +128,11 @@ public class controllerCarro {
 		carro.setVenda(venda);
 		carroR.save(carro);
 		vendaR.save(venda);
-		return "index";
+		rm.addFlashAttribute("teste", "failed");
+		rm.addFlashAttribute("nomeComprador", carro.getUser().getNome());
+		rm.addFlashAttribute("msgError", "Compra Realizada com sucesso!");
+		session.removeAttribute("carroCompra");
+		return "venda";
 		
 	}
 	
@@ -171,11 +185,19 @@ public class controllerCarro {
 	public String removeGameCarro(HttpSession session ,@PathVariable(value = "id") long id,RedirectAttributes rm){
 		CarroCompra carro  =  (CarroCompra) session.getAttribute("carroCompra");
 		List<Item> itens = carro.getItens();
-		for(Item i: itens){
-			if(i.getGame().getCodGame() == id){
-				itens.remove(i);
+		for(Iterator<Item> l = itens.iterator();l.hasNext();){
+			Item iten = l.next();
+			if(iten.getGame().getCodGame() == id){
+				l.remove();
+				break;
 			}
+			
 		}
+//		for(Item i: itens){
+//			if(i.getGame().getCodGame() == id){
+//				itens.remove(i);
+//			}
+//		}
 		carro.setItens(itens);
 		session.setAttribute("carroCompra", carro);
 		rm.addFlashAttribute("msg", "Game Removido com Sucesso!");

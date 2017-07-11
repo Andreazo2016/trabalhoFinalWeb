@@ -3,19 +3,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<header> </header>
 <body>
+
 	<c:import url="cabecalho_unico.jsp"></c:import>
-<div class=" left">
-	<img alt="" src="../../img/erro1.jpg">
-</div>
-	<div class="container">
-		<h1>Erro : ${codErro }</h1>
-		<h4>${erro}</h4>
-		<a href="/" class="btn"> Voltar pra Home</a>
+
+
+	<div id="venda-corpo">
+		<div class="container">
+			
+				<h2>Compra realizada com sucesso!</h2>
+				<h1>Gameflix Agradece ${nomeComprador }</h1>
+				<a href="/" class="btn"> Voltar pra inicio</a>
+		
+		</div>
+
 	</div>
-
-
-
 
 
 	<script type="text/javascript"
@@ -28,8 +31,5 @@
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons"
 		rel="stylesheet">
 	<link rel="stylesheet" href="../../css/style.css">
-
-
 </body>
-
 </html>

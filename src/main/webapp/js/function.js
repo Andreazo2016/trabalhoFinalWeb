@@ -1,3 +1,10 @@
+function confirmCarro(){
+	$("#myform").click(()=>{
+		$("#modal-resposta").modal('show');
+	});
+	
+}
+
 function msgError(){
 	var tela_erro = $('#div-error').is(":visible");
 	if(tela_erro){
@@ -28,7 +35,8 @@ function showAndHideNav(){
 
 
 function showVerProduto(){
-	$('#btn-ver-game').click(()=>{
+	$('#btn-login').click(()=>{
+		$('#btn-login').hide();
 		$('#area-principal').hide();
 		$('#login-section').show(1500);
 	});
@@ -43,11 +51,18 @@ function showAll(){
 	var btn_cad = $('#btn-cad').is(":visible");
 	var div_log = $('#img-logo').is(":visible");
 	var ver_prod = $('#area-principal').is(":visible");
+	var show = $('#show').is(":visible");
 	$('#btn-cad').click(()=>{
+		
+		if(div_log || show){
+			$('#img-logo').hide(1000);
+			$('#show').hide(1000);
+		}
+		if(tela_login){
+			$('#cadastro-section').show(10000);
+		}
+		
 		if(tela_login|| tela_principal){
-			if(div_log){
-				$('#img-logo').toggle(1000);
-			}
 			 $('#cards').hide();
 			 $('#login-section').hide(1500);
 			 $('#btn-cad').hide();
@@ -62,8 +77,9 @@ function showAll(){
 		}
 	});
 	$('#btn-login').click(()=>{
-		if(div_log){
-			$('#img-logo').toggle(1000);
+		if(div_log|| show){
+			$('#img-logo').hide(1000);
+			$('#show').hide(1000);
 		}
 		if(tela_cadastro || tela_principal){
 			 $('#cards').hide();
@@ -88,6 +104,7 @@ function showAll(){
 		
 	});
 	$('#cad-cancelar').click(()=>{
+		
 		$('#img-logo').toggle(1000);
 		$('#cadastro-section').hide(1500);
 		$('#btn-cad').show(1500);
@@ -95,9 +112,13 @@ function showAll(){
 	});
 }
 function showCategoria() {
+	var tela_login = $('#login-section').is(":visible");
+	var tela_cadastro = $('#cadastro-section').is(":visible");
 	$('#efeito-lista').click(function(){
+		
 		$('#img-logo').toggle(1000);
 		$('#show').toggle(1000);
+	
 	});
 }
 $(document).ready(function(){
@@ -112,6 +133,7 @@ $(document).ready(function(){
 	$('#cadastro-section').hide();
 	$('#login-section').hide();
 	showVerProduto();
+	confirmCarro();
 	msgError();
 	showAll();
 	$('.slider').slider();

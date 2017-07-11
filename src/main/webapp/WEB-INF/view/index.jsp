@@ -9,50 +9,81 @@
 </head>
 <body ng-controller="controllerIndex">
 	<div id="nav">
-		<c:import url="cabecalho.jsp" />
+		<c:import url="cabecalho_unico.jsp" />
 	</div>
 
-<c:if test="${teste == 'failed' }">
-	<div id="div-error">
-	<h1 class="center red-text">${msgError}</h1>
-	
+	<div class="container" id="show">
+
+		<div style="width: 1000px;" class="card-panel   grey lighten-3">
+			<div class="panel">
+				<h4 class="center ">Categorias:</h4>
+			</div>
+
+
+			<div class="collection  light-blue lighten-1">
+				<a href="#" class="collection-item center" id="xbox360"
+					ng-click="showGameCategoriaXbox360()">Xbox 360</a> <a href="#"
+					id="xboxone" class="collection-item center"
+					ng-click="showGameCategoriaXboxOne()">Xbox One</a> <a href="#"
+					class="collection-item center" id="ps4"
+					ng-click="showGameCategoriaP4()">Playstation 4</a> <a href="#"
+					id="pc" class="collection-item center"
+					ng-click="showGameCategoriaPC()">Computador</a>
+			</div>
+
+
+		</div>
+
+
+
+	</div>
+	<div id="modal2" class="modal" style="width: 900px">
+		<c:import url="modal_carro.jsp">
+
+		</c:import>
 	</div>
 
-</c:if>
-	
+	<c:if test="${teste == 'failed' }">
+		<div id="div-error">
+			<h1 class="center red-text">${msgError}</h1>
+
+		</div>
+
+	</c:if>
+
 
 
 	<div id="corpo">
-	<div class=" card-panel" id="img-logo">
-				<div class="slider">
-					<ul class="slides">
-						<li><img src="../../img/destaques/e31.JPG">
-							<!-- random image -->
-							<div class="caption center-align">
-								<h3>Lancamentos</h3>
-								<h5 class="light grey-text text-lighten-3">Só aqui na GameFlix.</h5>
-							</div></li>
-						<li><img src="../../img/destaques/e31.JPG">
-							<!-- random image -->
-							<div class="caption left-align">
-								<h3>Venha Aproveitar</h3>
-								<h5 class="light grey-text text-lighten-3">Só aqui na GameFlix.</h5>
-							</div></li>
-						<li><img  src="../../img/destaques/e33.png">
-							<!-- random image -->
-							<div class="caption right-align">
-								<h3>Corre que está acabando</h3>
-								<h5 class="light grey-text text-lighten-3">Só aqui na GameFlix.</h5>
-							</div></li>
-						<li><img  src="../../img/destaques/e32.jpg">
-							<!-- random image -->
-							<div class="caption center-align">
-								<h3>Venha!</h3>
-								<h5 class="light grey-text text-lighten-3">Só aqui na GameFlix.</h5>
-							</div></li>
-					</ul>
-				</div>
+		<div class=" card-panel" id="img-logo">
+			<div class="slider">
+				<ul class="slides">
+					<li><img src="../../img/destaques/e31.JPG"> <!-- random image -->
+						<div class="caption center-align">
+							<h3>Lancamentos</h3>
+							<h5 class="light grey-text text-lighten-3">Só aqui na
+								GameFlix.</h5>
+						</div></li>
+					<li><img src="../../img/destaques/e31.JPG"> <!-- random image -->
+						<div class="caption left-align">
+							<h3>Venha Aproveitar</h3>
+							<h5 class="light grey-text text-lighten-3">Só aqui na
+								GameFlix.</h5>
+						</div></li>
+					<li><img src="../../img/destaques/e33.png"> <!-- random image -->
+						<div class="caption right-align">
+							<h3>Corre que está acabando</h3>
+							<h5 class="light grey-text text-lighten-3">Só aqui na
+								GameFlix.</h5>
+						</div></li>
+					<li><img src="../../img/destaques/e32.jpg"> <!-- random image -->
+						<div class="caption center-align">
+							<h3>Venha!</h3>
+							<h5 class="light grey-text text-lighten-3">Só aqui na
+								GameFlix.</h5>
+						</div></li>
+				</ul>
 			</div>
+		</div>
 
 		<div id="cards" class=" container center">
 			<h4 class="center">Destaques</h4>
@@ -78,7 +109,7 @@
 								<p>{{game.nome}}</p>
 								<p>{{game.categoria}}</p>
 								<p>{{game.preco | currency:'R$ ': 2}}</p>
-								
+
 
 
 							</div>
